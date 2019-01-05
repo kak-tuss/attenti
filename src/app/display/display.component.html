@@ -1,0 +1,76 @@
+<div id="controls">
+  Please enter the size of the grid<br />
+  <input type="number" max="1000" [(ngModel)]="size" /> <br />
+  <button (click)="generateGrid()">Generate!</button>
+
+  <p><button (click)="countIslands()">Calculate Islands</button></p>
+  <div *ngIf="this.counter" id="result">{{ counter }}</div>
+</div>
+
+<div id="grid-controls">
+  <pagination-controls
+    (pageChange)="this.currentPageCol = $event"
+    id="cols"
+    maxSize="9"
+    directionLinks="true"
+    autoHide="true"
+    previousLabel="Left"
+    nextLabel="Right"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page"
+    class="matrix-paging leftright"
+  ></pagination-controls>
+  <pagination-controls
+    (pageChange)="this.currentPageRow = $event"
+    id="rows"
+    maxSize="9"
+    directionLinks="true"
+    autoHide="true"
+    previousLabel="Up"
+    nextLabel="Down"
+    screenReaderPaginationLabel="Pagination"
+    screenReaderPageLabel="page"
+    screenReaderCurrentLabel="You're on page"
+    class="matrix-paging updown"
+  ></pagination-controls>
+
+  <div id="grid-container">
+    <ul
+      *ngFor="
+        let row of (this.grid
+          | paginate
+            : {
+                itemsPerPage: this.pageSize,
+                currentPage: this.currentPageRow,
+                id: 'rows'
+              });
+        let i = index
+      "
+    >
+      <li
+        *ngFor="
+          let cell of (this.grid[this.pageSize * (this.currentPageRow - 1) + i]
+            | paginate
+              : {
+                  itemsPerPage: this.pageSize,
+                  currentPage: this.currentPageCol,
+                  id: 'cols'
+                });
+          let j = index
+        "
+        ngClass="color{{ cell % 10 }} "
+      >
+        <span
+          *ngIf="
+            this.grid[this.pageSize * (this.currentPageRow - 1) + i][
+              this.pageSize * (this.currentPageCol - 1) + j
+            ] > 0
+          "
+        ></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<button (click)="countIslands()">Calculate Islands</button>

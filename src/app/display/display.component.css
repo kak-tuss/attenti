@@ -1,0 +1,111 @@
+#controls {
+  float: left;
+  text-align: left;
+}
+#result {
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-size: 4em;
+  text-align: center;
+}
+
+#grid-controls {
+  width: 610px;
+  margin: 10px auto;
+}
+#grid-controls .matrix-paging /deep/ ul.ngx-pagination {
+  padding: 0;
+  margin: 0;
+  height: 26px;
+}
+
+#grid-controls /deep/ .leftright .pagination-previous a::before,
+#grid-controls /deep/ .leftright .pagination-previous.disabled::before {
+  content: "\2190"; /* <- */
+}
+#grid-controls /deep/ .leftright .pagination-next a::after,
+#grid-controls /deep/ .leftright .pagination-next.disabled::after {
+  content: "\2192"; /* -> */
+}
+
+#grid-controls .updown {
+  float: left;
+  width: 50px;
+  margin-top: 15px;
+}
+#grid-controls .updown li {
+  display: block;
+}
+#grid-controls /deep/ .updown .pagination-previous a::before,
+#grid-controls /deep/ .updown .pagination-previous.disabled::before {
+  content: "\2191"; /* /\ */
+  padding-left: 7px;
+}
+#grid-controls /deep/ .updown .pagination-next a::after,
+#grid-controls /deep/ .updown .pagination-next.disabled::after {
+  content: "\2193"; /* \/ */
+  margin-left: -8px;
+}
+
+#grid-container {
+  border: 1px solid black;
+  width: 550px;
+  height: 550px;
+  margin: 10px 0 10px auto;
+  padding: 0 0 1px 1px;
+  text-align: left;
+}
+#grid-container ul {
+  margin: 1px 0 0 0;
+  padding: 0;
+  display: block;
+  height: 10px;
+  list-style: none;
+  line-height: 10px;
+}
+#grid-container ul li {
+  margin: 0 1px 0 0;
+  padding: 0;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+#grid-container ul li {
+  background: #ffffff;
+}
+#grid-container ul li span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: none;
+}
+#grid-container ul li.color0 span {
+  background: #5a5353;
+}
+#grid-container ul li.color1 span {
+  background: #000000;
+}
+#grid-container ul li.color2 span {
+  background: #f01111;
+}
+#grid-container ul li.color3 span {
+  background: #4012e6;
+}
+#grid-container ul li.color4 span {
+  background: #e98708;
+}
+#grid-container ul li.color5 span {
+  background: #12ee49;
+}
+#grid-container ul li.color6 span {
+  background: #f7ef05;
+}
+#grid-container ul li.color7 span {
+  background: #df1bbe;
+}
+#grid-container ul li.color8 span {
+  background: #25afe6;
+}
+#grid-container ul li.color9 span {
+  background: #f756a1;
+}
